@@ -8,11 +8,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Aranjarea widget-urilor',
+      title: 'Playing with Widgets',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Aranjarea widget-urilor'),
+      home: MyHomePage(title: 'Playing with Widgets'),
     );
   }
 }
@@ -29,18 +29,18 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   final List<String> text =[
-    "Caine",
-    "Pisica",
-    "Maimuta",
-    "Elefant",
-    "Rinocer",
+    "Dog",
+    "Cat",
+    "Monkey",
+    "Snake",
+    "Bat",
     "T\n-\nR\nE\nX"
   ];
   var index = 0;
   int buildType = 0;
 
   Widget _build1(){
-    //folosesc Expanded
+    //usingExpanded
     return Center(
         child: Column(
           children: <Widget>[
@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         });
                     }, 
                     child: Text(
-                      "Schimba animalul",
+                      "Change the animal",
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold
@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
   
   Widget _build2(){
-    //folosesc Expanded
+    //using Expanded
     return Container(
       color: Colors.orangeAccent,
       child: Column(children: [
@@ -118,7 +118,20 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Container(color:Colors.pink),
           flex: 8
         ),
-        ElevatedButton(child: Text("Buton1"), onPressed: (){},),
+        ElevatedButton(
+          child: Text("Buton1"),
+          onPressed: () {showModalBottomSheet(
+              context: context, 
+              builder: (_){
+                return Container(
+                  height: 300,
+                  color:Colors.yellow,
+                  child: Text("Aaaaaa"),
+               );
+              }
+            );
+          }
+        ),
         ElevatedButton(child: Text("Buton2"), onPressed: (){},),
         Expanded(
           child: Container(color:Colors.purple[400]),
@@ -130,7 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   Widget _build3(){
-    //folosesc mainAxisAlignment
+    //using mainAxisAlignment
     return Container(
         color: Colors.teal,
         child: Column(
@@ -154,7 +167,7 @@ class _MyHomePageState extends State<MyHomePage> {
                width: double.infinity,
                 color: Colors.yellow,
                 child: Center(
-                  //Center ia latimea pe care o are copilul sau
+                  //Center takes the width of its child
                   child: RaisedButton(
                     color: Colors.deepOrange,
                     onPressed: (){
